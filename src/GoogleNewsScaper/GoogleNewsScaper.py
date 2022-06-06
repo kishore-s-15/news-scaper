@@ -9,8 +9,8 @@ from typing import List, Dict, Union
 import requests
 from bs4 import BeautifulSoup
 
-# Return type of articles
-Articles = Dict[str, Union[str, datetime]]
+# Return type of google news article
+GoogleNewsArticle = Dict[str, Union[str, datetime]]
 
 
 class GoogleNewsScraper:
@@ -94,12 +94,12 @@ class GoogleNewsScraper:
         date_time_obj = datetime.strptime(date_time_str, self.DATE_TIME_FORMAT)
         return date_time_obj
 
-    def scrape_articles(self) -> List[Articles]:
+    def scrape_articles(self) -> List[GoogleNewsArticle]:
         """
         Method scrapes google news rss feed articles.
 
         Returns:
-            articles (List[Articles]): List of scraped articles of type Article.
+            articles (List[GoogleNewsArticle]): List of scraped articles of type GoogleNewsArticle.
         """
 
         self.logger.info(f"Started scraping {self.url}...")
@@ -110,7 +110,7 @@ class GoogleNewsScraper:
 
         self.logger.info(f"Scraped {len(items)} articles.")
 
-        articles: List[Articles] = []
+        articles: List[GoogleNewsArticle] = []
 
         for item in items:
             article = {}
@@ -130,12 +130,12 @@ class GoogleNewsScraper:
 
         return articles
 
-    def print_articles(self, articles: List[Articles]):
+    def print_articles(self, articles: List[GoogleNewsArticle]):
         """
         Method pretty prints scraped articles.
 
         Args:
-            articles (List[Articles]): Scraped Articles.
+            articles (List[GoogleNewsArticle]): Scraped Articles.
         """
 
         self.pretty_printer.pprint(articles)
