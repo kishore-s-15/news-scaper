@@ -52,7 +52,7 @@ class GoogleNewsScraper:
         Setter method for _query attribute.
 
         Args:
-            query_string
+            query_string (str): Query to scrape.
         """
 
         query_string_list = query_string.split(" ")
