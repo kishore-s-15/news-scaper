@@ -32,24 +32,24 @@ git clone git@github.com:kishore-s-15/news-scaper.git
 
    > On Windows run
    ```
-   python -m venv .venv
+   python -m venv env
    ```
    
    > On Linux and MacOs run
    ```
-   python3 -m venv .venv
+   python3 -m venv env
    ```
 
 4. Activate the virtual environment
 
    > On Windows run
    ```
-   .venv\Scripts\activate.bat
+   env\Scripts\activate.bat
    ```
    
    > On Linux and MacOs run
    ```
-   source .venv/bin/activate
+   source env/bin/activate
    ```
    
 5. Install the dependencies for the project in the virtual environment
