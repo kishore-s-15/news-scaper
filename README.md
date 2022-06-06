@@ -26,7 +26,9 @@ GoogleNewsScraper scrapes articles from google news rss feeds based on the given
 git clone git@github.com:kishore-s-15/news-scaper.git
 ```
 
-2. Create a virtual environment
+2. Change the directory to the project root directory.
+
+3. Create a virtual environment
 
    > On Windows run
    ```
@@ -38,7 +40,7 @@ git clone git@github.com:kishore-s-15/news-scaper.git
    python3 -m venv .venv
    ```
 
-3. Activate the virtual environment
+4. Activate the virtual environment
 
    > On Windows run
    ```
@@ -50,12 +52,12 @@ git clone git@github.com:kishore-s-15/news-scaper.git
    source .venv/bin/activate
    ```
    
-4. Install the dependencies for the project in the virtual environment
+5. Install the dependencies for the project in the virtual environment
 ```
 pip install -r requirements.txt
 ```
    
-5. Then run the following command
+6. Then run the following command
 
    > On Windows run
    ```
