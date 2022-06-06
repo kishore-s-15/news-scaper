@@ -118,7 +118,6 @@ class GoogleNewsScraper:
             # Articles Info
             article["link"] = item.find("link").text
             article["title"] = item.find("title").text
-            article["description"] = item.find("description").text
 
             # Publisher info
             article["publisher"] = item.find("source").text
