@@ -1,13 +1,16 @@
 # Importing the required libraries
 
 import sys
+import psycopg2
 import pprint
 import logging
 from datetime import datetime
 from typing import List, Dict, Union
+from psycopg2.extras import execute_values
 
 import requests
 from bs4 import BeautifulSoup
+
 
 # Return type of google news article
 GoogleNewsArticle = Dict[str, Union[str, datetime]]
@@ -148,3 +151,24 @@ if __name__ == "__main__":
     articles = google_scaper.scrape_articles()
 
     google_scaper.print_articles(articles)
+
+    conn = psycopg2.connect(
+    database = "google_news_db",
+    user = 'postgres',
+    password = 'Tanmay123',
+    host = 'localhost',
+    port = '5432'
+    )
+    conn.autocommit = True
+    cursor = conn.cursor()
+
+
+
+    columns = articles[0].keys()
+    query = "INSERT INTO articles ({}) VALUES %s".format(','.join(columns))
+
+    values = [[value for value in article.values()] for article in articles]
+
+    execute_values(cursor, query, values)
+    conn.commit()
+    
